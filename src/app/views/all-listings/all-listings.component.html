@@ -1,0 +1,24 @@
+<ng-container>
+    <mat-toolbar class="w100" color='primary'>
+        <span>Our Listings</span>
+    </mat-toolbar>
+    <div class="scroll">
+        <div
+            *ngFor="let listing of listings.features; let i = index"
+            class="card m-3 p-2"
+            (click)="zoomToPlace(listing)"
+        >
+            <div class="row">
+                <div class="col-7">
+                    <h4 class="font-weight-bold">Listing #{{ listing.properties.listingId }}</h4>
+                    <span>{{ listing.properties.address }}</span>
+                    <p>{{ listing.properties.avgCost | formatNumber }}</p>
+                    <span>{{ listing.properties.amenities.length }} High Value Amenities</span>
+                </div>
+                <div class="col-5 p-0 m-0">
+                    <img [src]='listing.properties.gallery[0]' alt="house" />
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

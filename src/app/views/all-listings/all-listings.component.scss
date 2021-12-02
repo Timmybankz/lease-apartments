@@ -1,0 +1,40 @@
+.w100 {
+  width: 100% !important;
+}
+
+img {
+  width: 90%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 90%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #d3d3d3;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cecece;
+}

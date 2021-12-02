@@ -1,0 +1,28 @@
+.amount {
+  font-size: 20px;
+  font-weight: 200;
+  color: #1976d2;
+  text-align: center;
+}
+
+.image-slides {
+  height: 100px;
+  width: 100%;
+}
+
+.img-containers {
+  text-align: center;
+  padding: 2px;
+}
+
+.scroll {
+  width: 99%;
+}
+
+mat-tab-group {
+  width: 100%;
+
+  mat-tab {
+    width: 50%;
+  }
+}

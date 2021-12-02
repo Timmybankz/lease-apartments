@@ -1,0 +1,59 @@
+
+<mat-toolbar class="w100" color='primary'>
+    <button (click)="goToListings()" mat-flat-button color="primary">
+        <mat-icon>arrow_back_ios</mat-icon>
+        Back To Listings
+    </button>
+</mat-toolbar>
+<div class="container">
+    <h2>Listing #{{ listing.properties.listingId }}</h2>
+    <h4>{{ listing.properties.address }}</h4>
+    <div class="row w100">
+        <div *ngFor="let imageUrl of listing.properties.gallery" class="col-4 img-containers">
+            <img class="image-slides" [src]='imageUrl' alt="house" />
+        </div>
+    </div>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Plans">
+            <div class="row mt-3" *ngFor="let plan of listing.properties.plans">
+                <div class="col-4">
+                    <p>{{ plan.rooms }}</p>
+                    <p>{{ plan.size }}</p>
+                </div>
+                <div class="col-4">
+                    <p>{{ plan.connectionType }}</p>
+                </div>
+                <div class="col-4 amount">
+                    <h4>{{ plan.price | formatNumber }}</h4>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Overview">
+            <mat-list>
+                <mat-list-item>
+                    <mat-icon color='primary' mat-list-icon>book</mat-icon>
+                    <div mat-line>{{ listing.properties.policySummary }}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon color='primary' mat-list-icon>money</mat-icon>
+                    <div mat-line>{{ listing.properties.fees.app | formatNumber }} App Fee.</div>
+                    <div mat-line>{{ listing.properties.fees.admin | formatNumber }} Admin Fee.</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon color='primary' mat-list-icon>build</mat-icon>
+                    <div mat-line>Built {{ listing.properties.yearBuilt }}</div>
+                    <div mat-line>Renovated {{ listing.properties.yearOfRenovation }}</div>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider></mat-divider>
+            <div class="row mt-3">
+                <div class="col-6" *ngFor="let amenity of listing.properties.amenities">
+                    <div class="row pl-3">
+                        <mat-icon mat-list-icon>{{ amenity.iconName }}</mat-icon>
+                        <p>{{ amenity.nameOfAmenity }}</p>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
